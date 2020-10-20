@@ -1,0 +1,31 @@
+This shows how to use the SQLite_API in a Unity project
+
+First you need to add the SQLite DLLs to the project
+1. Under the folder Assets, create a folder Plugins
+2. In order to keep things in order, I suggest creating another folder under Plugins called SQLite
+3. Drag the SQLite_API DLL into this folder
+3. Drag the following 2 SQLite DLLs into this folder
+  - SQLite.Interop.dll
+  - System.Data.SQLite.dll
+
+  NOTES:
+    - These can be found in the project for SQLite_API
+    - If you include the NUGET package into the Unity project, Unity does not find them, you need to add them manually here.
+
+Create the SQLite Database
+If you want the Unity project to interface with the SQLite database, it MUST be part of the Assets.
+1. Create the SQLite database in the appropriate tool
+  - This could be an administration tool (like SQLiteStudio) or an external console app such as the one used in the SQLite_API project.
+    For this, I will be using the database created in the SQLite_API project
+2. For organizational purposes, create a folder under Plugins named SLite_DBs
+3. Copy the desired database(s) into this folder
+
+Now you can interface with the SQLite databases using the SQLite_API
+1. Under the directory Assets, create a folder Scripts
+2. Create a C# script to interface with the database.  I called mine SQLite_Unity
+3. Open the script
+  - If you open References, you will notice both SQLite_API and System.Data.SQLite are there
+4. Create a game object and attach the script to it
+5. Create the appropriate interfacing to the database (see the script SQLite_Unity for more detail)
+  - You may notice that everything except the database path are the same as the console project in the SQLite_API project.  This illustrates that
+    once the connection is defined, the method to interface is exactly the same.
